@@ -1,6 +1,6 @@
 package com.wise.ship.mongodb.employee.crud.api.microservice.rest.services.impls;
 
-import com.wise.ship.mongodb.employee.crud.api.microservice.rest.mongo.documents.EmployeeDocument;
+import com.wise.ship.mongodb.employee.crud.api.microservice.rest.entities.Employee;
 import com.wise.ship.mongodb.employee.crud.api.microservice.rest.repositories.EmployeeRepository;
 import com.wise.ship.mongodb.employee.crud.api.microservice.rest.services.EmployeeService;
 import jakarta.servlet.ServletContext;
@@ -23,22 +23,22 @@ public class EmployeeServiceImpl implements EmployeeService, ServletContextAware
     }
 
     @Override
-    public List<EmployeeDocument> getAllEmployees() {
+    public List<Employee> getAllEmployees() {
         return employeeRepository.findAll();
     }
 
     @Override
-    public EmployeeDocument saveEmployee(EmployeeDocument employee) {
+    public Employee saveEmployee(Employee employee) {
         return employeeRepository.save(employee);
     }
 
     @Override
-    public EmployeeDocument getEmployeeById(Long id) {
+    public Employee getEmployeeById(Long id) {
         return employeeRepository.findById(id).get();
     }
 
     @Override
-    public EmployeeDocument updateEmployee(EmployeeDocument employee) {
+    public Employee updateEmployee(Employee employee) {
         return employeeRepository.save(employee);
     }
 

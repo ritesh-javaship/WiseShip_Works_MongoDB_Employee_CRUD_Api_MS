@@ -1,7 +1,6 @@
 package com.wise.ship.mongodb.employee.crud.api.microservice.controller;
 
 import com.wise.ship.mongodb.employee.crud.api.microservice.rest.entities.Employee;
-import com.wise.ship.mongodb.employee.crud.api.microservice.rest.mongo.documents.EmployeeDocument;
 import com.wise.ship.mongodb.employee.crud.api.microservice.rest.services.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -29,14 +28,14 @@ public class EmployeeSpringMVCController {
     public String createEmployeeForm(Model model) {
 
         // create employee object to hold employee form data
-        Employee employee = new Employee();
+        com.wise.ship.mongodb.employee.crud.api.microservice.rest.entities.Employee employee = new com.wise.ship.mongodb.employee.crud.api.microservice.rest.entities.Employee();
         model.addAttribute("employee", employee);
         return "create_employee";
 
     }
 
     @PostMapping("/employees")
-    public String saveEmployee(@ModelAttribute("employee") EmployeeDocument employee) {
+    public String saveEmployee(@ModelAttribute("employee") Employee employee) {
         employeeService.saveEmployee(employee);
         return "redirect:/employees";
     }
@@ -49,11 +48,11 @@ public class EmployeeSpringMVCController {
 
     @PostMapping("/employees/{id}")
     public String updateEmployee(@PathVariable Long id,
-                                @ModelAttribute("employee") EmployeeDocument employee,
+                                @ModelAttribute("employee") Employee employee,
                                 Model model) {
 
         // get employee from database by id
-        EmployeeDocument existingEmployee = employeeService.getEmployeeById(id);
+        Employee existingEmployee = employeeService.getEmployeeById(id);
         existingEmployee.setId(id);
         existingEmployee.setFirstName(employee.getFirstName());
         existingEmployee.setLastName(employee.getLastName());

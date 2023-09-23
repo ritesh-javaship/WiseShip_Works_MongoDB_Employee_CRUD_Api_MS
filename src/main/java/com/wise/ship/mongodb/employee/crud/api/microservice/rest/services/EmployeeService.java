@@ -1,18 +1,17 @@
 package com.wise.ship.mongodb.employee.crud.api.microservice.rest.services;
 
 import com.wise.ship.mongodb.employee.crud.api.microservice.rest.entities.Employee;
-import com.wise.ship.mongodb.employee.crud.api.microservice.rest.mongo.documents.EmployeeDocument;
 
 import java.util.List;
 
 public interface EmployeeService {
-    List<EmployeeDocument> getAllEmployees();
+    List<Employee> getAllEmployees();
 
-    EmployeeDocument saveEmployee(EmployeeDocument employee);
+    Employee saveEmployee(Employee employee);
 
-    EmployeeDocument getEmployeeById(Long id);
+    Employee getEmployeeById(Long id);
 
-    EmployeeDocument updateEmployee(EmployeeDocument employee);
+    Employee updateEmployee(Employee employee);
 
     void deleteEmployeeById(Long id);
 }

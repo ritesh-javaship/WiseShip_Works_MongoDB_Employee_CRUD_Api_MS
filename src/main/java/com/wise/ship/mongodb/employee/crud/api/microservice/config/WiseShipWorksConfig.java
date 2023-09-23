@@ -46,7 +46,7 @@ public class WiseShipWorksConfig {
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
         LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
         em.setDataSource(dataSource());
-        em.setPackagesToScan("com.wise.ship.mysql.employee.crud.api.microservice");
+        em.setPackagesToScan("com.wise.ship.mongodb.employee.crud.api.microservice");
 
         JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
         em.setJpaVendorAdapter(vendorAdapter);
