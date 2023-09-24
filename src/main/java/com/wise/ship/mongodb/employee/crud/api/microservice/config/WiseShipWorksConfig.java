@@ -54,11 +54,11 @@ public class WiseShipWorksConfig {
         return em;
     }
 
-    @Bean
+    /*@Bean
     public MongoClientSettingsBuilderCustomizer mongoClientCustomizer(@Value("${spring.data.mongodb.uri}") String uri) {
         ConnectionString connection = new ConnectionString(uri);
         return settings -> settings.applyConnectionString(connection);
-    }
+    }*/
 
     /*@Bean
     public MongoClientFactoryBean mongo(@Value("${spring.data.mongodb.uri}") String uri) throws Exception {
@@ -71,7 +71,7 @@ public class WiseShipWorksConfig {
         return mongo;
     }*/
 
-    @Bean
+    /*@Bean
     public MongoClient mongo() {
         ConnectionString connectionString = new ConnectionString("mongodb://localhost:27017/?replicaSet=WiseShipWorksEmployeeCRUDDB&authSource=admin&retryWrites=true&w=majority");
         MongoClientSettings mongoClientSettings = MongoClientSettings.builder()
@@ -84,5 +84,5 @@ public class WiseShipWorksConfig {
     @Bean
     public MongoTemplate mongoTemplate() throws Exception {
         return new MongoTemplate(mongo(), "WiseShipWorksEmployeeCRUDDB");
-    }
+    }*/
 }
